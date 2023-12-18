@@ -1,5 +1,6 @@
 from solutions import Solution
 from players import Player
+from generators import Generator
 
 
 def test_boundary_points_binary_solution():
@@ -68,3 +69,19 @@ def test_check_coordinates_negative():
     player = Player(30, 60)
     player.rect.x, player.rect.y = 403, 404
     assert not player.check_right_place(20, 20)
+
+
+def test_binary_generating_empty_line():
+    generator = Generator(4, 4)
+    field_up, field_right = generator.binary_generating()
+    for i in range(len(field_up[0])):
+        assert field_up[0][i] == 1
+    for i in range(len(field_right)):
+        assert field_right[i][-1] == 1
+
+
+def test_sidewinder_generating_empty_line():
+    generator = Generator(4, 4)
+    field_up, field_right = generator.sidewinder_generating()
+    for i in range(len(field_up[0])):
+        assert field_up[0][i] == 1
