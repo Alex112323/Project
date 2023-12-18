@@ -2,6 +2,19 @@ from solutions import Solution
 from players import Player
 
 
+def test_boundary_points_binary_solution():
+    field_up = [[1, 1, 1],
+                [0, 0, 0],
+                [0, 0, 0]]
+    field_right = [[0, 0, 1],
+                   [1, 1, 1],
+                   [1, 1, 1]]
+    solution = Solution(field_up, field_right)
+    result = solution.binary_solution(2, 0)
+    expected = ([], 2, 0)
+    assert result == expected
+
+
 def test_standart_binary_solution():
     field_up = [[1, 1, 1, 1],
                 [0, 0, 0, 0],
@@ -14,19 +27,6 @@ def test_standart_binary_solution():
     solution = Solution(field_up, field_right)
     result = solution.binary_solution(1, 3)
     expected = ([(1, 3), (2, 3), (2, 2)], 3, 2)
-    assert result == expected
-
-
-def test_boundary_points_binary_solution():
-    field_up = [[1, 1, 1],
-                [0, 0, 0],
-                [0, 0, 0]]
-    field_right = [[0, 0, 1],
-                   [1, 1, 1],
-                   [1, 1, 1]]
-    solution = Solution(field_up, field_right)
-    result = solution.binary_solution(2, 0)
-    expected = ([], 2, 0)
     assert result == expected
 
 
