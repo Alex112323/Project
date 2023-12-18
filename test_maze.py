@@ -63,8 +63,8 @@ def test_check_coordinates_standard():
     player.rect.x, player.rect.y = 404, 404
     assert player.check_right_place(20, 20)
 
+
 def test_check_coordinates_negative():
     player = Player(30, 60)
     player.rect.x, player.rect.y = 403, 404
     assert not player.check_right_place(20, 20)
-
